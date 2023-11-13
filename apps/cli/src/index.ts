@@ -35,7 +35,7 @@ const downloadFile = async (
 };
 
 downloadFile(
-  'https://preview.threekit.com/api/files/a6c136ff-a438-4033-a671-e9799cab98aa/content',
+  'https://preview.threekit.com/api/files/a6c136ff-a438-4033-a671-e9799cab98aa/content?bearer_token=625eec97-1dcf-423a-89d0-9e2ae05746ba',
   'content.webp'
 );
 downloadFile(
