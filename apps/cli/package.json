@@ -4,13 +4,18 @@
   "type": "module",
   "source": "./src/index.ts",
   "main": "./dist/index.js",
-  "bin": "./bin/cli.js",
+  "bin": "tsnode ./bin/cli.js",
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch"
   },
   "dependencies": {
     "@template-typescript-monorepo/common-lib": "*",
+    "content-disposition": "^0.5.4",
+    "node-fetch": "^3.3.2",
     "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.9"
   }
 }

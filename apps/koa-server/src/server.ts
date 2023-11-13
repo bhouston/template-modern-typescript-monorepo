@@ -4,6 +4,7 @@ import cors from '@koa/cors';
 import Router from '@koa/router';
 import { toCamelCase } from '@template-typescript-monorepo/common-lib';
 import { stringToMd5Hash } from '@template-typescript-monorepo/node-lib';
+import fs from 'fs';
 import Koa from 'koa';
 import compress from 'koa-compress';
 import logger from 'koa-logger';
@@ -31,6 +32,26 @@ export const main = async () => {
       }
     })
   );
+
+  router.get('/api/files/images/webp', async (ctx: Koa.Context) => {
+    // read file 'test.webp' and then send it back
+
+    console.log('request headers');
+    console.log(ctx.request.headers);
+    const filePath = `${BASE_DIR}/IrisNebula_NGC7023_2023_v5.png`;
+    const readStream = fs.createReadStream(filePath);
+    // get file size
+    const stats = fs.statSync(filePath);
+    ctx.response.set('content-type', 'image/png');
+    ctx.response.set('content-length', `${stats.size}`);
+    ctx.response.set('cache-control', 'public, max-age=31536000, immutable');
+    ctx.response.set('Access-Control-Allow-Origin', '*');
+    ctx.response.set('Access-Control-Allow-Credentials', 'true');
+    ctx.response.set('Access-Control-Allow-Methods', 'GET,OPTIONS');
+    ctx.response.set('content-disposition', 'attachment; filename="test.png"');
+    ctx.response.body = readStream;
+    ctx.status = 200;
+  });
 
   router.get('/api/get-message', async (ctx: Koa.Context) => {
     const text = toCamelCase('world');
