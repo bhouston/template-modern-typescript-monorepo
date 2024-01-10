@@ -26,23 +26,26 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    - name: docker build
+      run: |
+        docker build -t ${{ inputs.gcr_hostname }}/${{ inputs.project_id }}/${{ inputs.service_name }}:${{ github.sha }} -f ${{ inputs.dockerfile }} .
+      shell: bash
+
     - id: 'auth'
+      if: ${{ inputs.dry_run != 'true' }}
       name: gcloud auth
       uses: google-github-actions/auth@v2
       with:
         credentials_json: '${{ inputs.credentials_json }}'
 
     - name: gcloud sdk
+      if: ${{ inputs.dry_run != 'true' }}
       uses: google-github-actions/setup-gcloud@v2
       with:
         skip_install: true
 
-    - name: docker build
-      run: |
-        docker build -t ${{ inputs.gcr_hostname }}/${{ inputs.project_id }}/${{ inputs.service_name }}:${{ github.sha }} -f ${{ inputs.dockerfile }} .
-      shell: bash
-
     - name: docker push
+      if: ${{ inputs.dry_run != 'true' }}
       run: |
         gcloud auth configure-docker ${{ inputs.gcr_hostname }}
         docker push ${{ inputs.gcr_hostname }}/${{ inputs.project_id }}/${{ inputs.service_name }}:${{ github.sha }}
