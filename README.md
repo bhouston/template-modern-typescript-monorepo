@@ -2,11 +2,11 @@
 
 This is a template for a monorepo that uses best practices for TypeScript, Web Services and React.
 
-It is what @bhouston considers best practice in January 2024.
+It is what @bhouston considers best practice in February 2024.
 
 ## The end result
 
-<img width="573" alt="Screenshot 2024-01-09 at 4 53 45 PM" src="https://github.com/bhouston/template-typescript-monorepo/assets/588541/3a7e6b62-ff16-492d-9f20-b409ab84f104">
+![Screenshot 2024-02-27 at 9 25 01 AM](https://github.com/bhouston/template-typescript-monorepo/assets/588541/8ee26d8e-8451-4257-935a-094bcab749cd)
 
 ## Features
 
