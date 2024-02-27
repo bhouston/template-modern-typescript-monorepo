@@ -4,7 +4,10 @@
   "targets": {
     "watch": {
       "options": {
-        "commands": ["bun run --watch dist/server.js"]
+        "commands": [
+          "tsc --watch --preserveWatchOutput",
+          "bun run --watch dist/server.js"
+        ]
       }
     },
     "build": {},
