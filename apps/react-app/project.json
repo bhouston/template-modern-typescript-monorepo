@@ -4,12 +4,12 @@
   "targets": {
     "watch": {
       "options": {
-        "commands": ["vite"]
+        "commands": ["bunx --bun vite"]
       }
     },
     "build": {
       "options": {
-        "commands": ["tsc", "vite build"]
+        "commands": ["bunx --bun tsc", "bunx --bun vite build"]
       }
     },
     "lint:check": {},

@@ -1,20 +1,13 @@
 # .github/actions/setup-node/action.yml
 name: 'install workspace'
-description: 'Set up Node.js environment and check out code'
-inputs:
-  node-version-file:
-    description: 'Path to Node version file'
-    default: '.nvmrc'
+description: 'Set up Bun and install packages'
 runs:
   using: 'composite'
   steps:
-    - name: setup node
-      uses: actions/setup-node@v4
+    - uses: oven-sh/setup-bun@v1
       with:
-        node-version-file: ${{ inputs.node-version-file }}
-        cache: 'npm'
-        cache-dependency-path: 'package-lock.json'
+        bun-version: latest
 
-    - name: npm ci
-      run: npm ci --audit=false --fund=false
+    - name: bun install
+      run: bun install --silent
       shell: bash

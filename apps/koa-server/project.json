@@ -4,7 +4,7 @@
   "targets": {
     "watch": {
       "options": {
-        "commands": ["tsc --watch", "nodemon dist/server.js"]
+        "commands": ["bun run --watch dist/server.js"]
       }
     },
     "build": {},

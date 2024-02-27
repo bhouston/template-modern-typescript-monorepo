@@ -23,7 +23,7 @@
       "outputs": ["{projectRoot}/dist"],
       "options": {
         "cwd": "{projectRoot}",
-        "commands": ["tsc --watch"],
+        "commands": ["bunx --bun tsc --watch"],
         "parallel": true
       }
     },
@@ -34,7 +34,7 @@
       "outputs": ["{projectRoot}/dist"],
       "options": {
         "cwd": "{projectRoot}",
-        "commands": ["tsc"]
+        "commands": ["bunx --bun tsc"]
       },
       "cache": true
     },
@@ -59,7 +59,7 @@
       "inputs": ["default"],
       "options": {
         "cwd": "{projectRoot}",
-        "command": "prettier \"src/**/*.{js,jsx,css,md,html,ts,tsx,json,yaml}\" --check"
+        "command": "bunx prettier \"src/**/*.{js,jsx,css,md,html,ts,tsx,json,yaml}\" --check"
       },
       "cache": true
     },
@@ -70,7 +70,7 @@
       "outputs": [],
       "options": {
         "cwd": "{projectRoot}",
-        "command": "node --experimental-vm-modules --no-warnings ../../node_modules/jest/bin/jest.js"
+        "command": "bun --experimental-vm-modules --no-warnings ../../node_modules/jest/bin/jest.js"
       },
       "cache": true
     }
