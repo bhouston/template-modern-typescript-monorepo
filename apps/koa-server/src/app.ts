@@ -48,6 +48,18 @@ export const getApp = (appProps: AppProps) => {
   if (nodeEnv === 'production') {
     const reactAppDist = path.join(config.BASE_DIR, '../react-app/dist');
 
+    if (!fs.existsSync(reactAppDist)) {
+      // list current directories in ../react-app
+      const dirs = fs.readdirSync(path.join(config.BASE_DIR, '../react-app'));
+      console.log(
+        `The React app build directory does not exist: ${reactAppDist}`
+      );
+      console.log('Current directories in ../react-app: ', dirs);
+      throw new Error(
+        `The React app build directory does not exist: ${reactAppDist}`
+      );
+    }
+
     // Serve the entire contents of the dist folder
     app.use(
       serve(reactAppDist, {

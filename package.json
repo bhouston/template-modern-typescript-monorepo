@@ -16,7 +16,8 @@
     "format": "bunx nx run-many --target=format --all",
     "test": "bunx nx run-many --target=test --all",
     "publish": "bunx nx run-many --target=build,test --all && bunx lerna publish --no-private",
-    "gcloud-setup": "gcloud auth application-default login && gcloud config set project bhouston-general-hosting && gcloud config set run/region us-central1"
+    "gcloud-setup": "gcloud auth application-default login && gcloud config set project bhouston-general-hosting && gcloud config set run/region us-central1",
+    "build:docker": "docker buildx build --platform linux/amd64 -t template-typescript-monorepo -f Dockerfile ."
   },
   "keywords": [],
   "author": "",

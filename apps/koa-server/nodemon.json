@@ -1,9 +1,0 @@
-{
-  "verbose": true,
-  "ignore": ["*.test.js"],
-  "watch": ["dist/**/*"],
-  "env": {
-    "NODE_ENV": "development"
-  },
-  "ext": "ts, js, json"
-}
