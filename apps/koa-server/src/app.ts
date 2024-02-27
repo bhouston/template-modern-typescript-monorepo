@@ -24,7 +24,8 @@ export const getApp = (appProps: AppProps) => {
     compress({
       filter() {
         return true;
-      }
+      },
+      br: false // Disable brotli compression
     })
   );
 
