@@ -31,7 +31,7 @@ It is what @bhouston considers best practice in November 2024.
 - Node:test testing
 - Github action CI
 
-* Temporarily disabled with move to Fastify.
+\* Temporarily disabled with move to Fastify.
 
 ## Getting Started
 
